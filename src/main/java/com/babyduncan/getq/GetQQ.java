@@ -50,8 +50,7 @@ public class GetQQ {
         try {
 
             String[] targets = {
-                    "/profiles/737191831",
-                    "/profiles/23271125"};
+                    "/profiles/737191831"};
 
             List<String> qqList = new ArrayList<String>();
 
