@@ -9,6 +9,7 @@ import org.apache.http.impl.DefaultConnectionReuseStrategy;
 import org.apache.http.message.BasicHttpRequest;
 import org.apache.http.protocol.*;
 import org.apache.http.util.EntityUtils;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -27,6 +28,7 @@ import java.util.Map;
  */
 public class GetQQ {
 
+    private static final Logger logger = Logger.getLogger(GetQQ.class);
 
     public static void main(String... args) {
         // get qq from guest of http://meishi.qq.com/profiles/737191831
@@ -73,6 +75,7 @@ public class GetQQ {
                             String tempqq = result.substring(10, result.indexOf("\"><"));
                             if (!qqList.contains(tempqq)) {
                                 System.out.println("--------------> get one qq " + result.substring(10, result.indexOf("\"><")));
+                                logger.info(result.substring(10, result.indexOf("\"><")));
                                 qqList.add(tempqq);
                             }
                             result = result.substring(result.indexOf("\"><"));
