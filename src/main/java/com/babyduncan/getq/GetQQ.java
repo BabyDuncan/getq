@@ -1,7 +1,6 @@
 package com.babyduncan.getq;
 
 import org.apache.http.ConnectionReuseStrategy;
-import org.apache.http.HttpException;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.impl.DefaultBHttpClientConnection;
@@ -13,11 +12,8 @@ import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -77,6 +73,9 @@ public class GetQQ {
                                 System.out.println("--------------> get one qq " + result.substring(10, result.indexOf("\"><")));
                                 logger.info(result.substring(10, result.indexOf("\"><")));
                                 qqList.add(tempqq);
+                                if(qqList.size()>10000){
+                                    qqList.remove(567);
+                                }
                             }
                             result = result.substring(result.indexOf("\"><"));
                         }
